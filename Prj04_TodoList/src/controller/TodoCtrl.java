@@ -11,10 +11,30 @@ public class TodoCtrl {
 	}
 	
 	public void addTodo(String descrizione) {
-		Todo temp = new Todo(descrizione);
-		int pos = 
+		int pos = trovaPosizioneLibera();
+
+		if (pos > -1) {
+			Todo temp = new Todo(descrizione);
+			coseDaFare[pos] = temp;
+		} else {
+			System.out.println("contenitore pieno!!!!");
+		}
+
 	}
 	
+	private int trovaPosizioneLibera() {
+		
+		int pos = -1;
+		
+		for (int i = 0; i < coseDaFare.length; i++) {
+			if (coseDaFare[i] == null) {
+				return i;
+			}
+		}
+		
+		return pos;
+	}
+
 	public void addTodo(String descrizione, int pos) {
 		Todo temp = new Todo(descrizione);
 		coseDaFare[pos] = temp;

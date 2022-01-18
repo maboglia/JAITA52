@@ -14,6 +14,13 @@ public class GestioneTodo {
 		ctrl.addTodo("pane", 1);
 		ctrl.addTodo("biscotti", 2);
 		ctrl.addTodo("caffè", 3);
+		ctrl.addTodo("the");
+		ctrl.addTodo("limoni");
+		ctrl.addTodo("pesche");
+		ctrl.addTodo("pomodori");
+		ctrl.addTodo("banane");
+		ctrl.addTodo("sapone");
+		ctrl.addTodo("pasta");
 		
 		ctrl.completaTodo(2);
 		
