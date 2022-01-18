@@ -23,6 +23,8 @@ public class GestioneTodo {
 		ctrl.addTodo("pasta");
 		
 		ctrl.completaTodo(2);
+		ctrl.completaTodo(4);
+		ctrl.completaTodo(6);
 		
 		for (Todo cosa : ctrl.getCoseDaFare()) {
 			if (cosa != null) {
