@@ -15,6 +15,8 @@ public class GestioneTodo {
 		ctrl.addTodo("biscotti", 2);
 		ctrl.addTodo("caffè", 3);
 		
+		ctrl.completaTodo(2);
+		
 		for (Todo cosa : ctrl.getCoseDaFare()) {
 			if (cosa != null) {
 				System.out.println(cosa.leggiTodo());
