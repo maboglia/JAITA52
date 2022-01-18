@@ -1,21 +1,25 @@
 package view;
 
+import controller.TodoCtrl;
 import model.Todo;
 
 public class GestioneTodo {
 
 	public static void main(String[] args) {
 		
-		Todo t1 = new Todo("Studiare Java");
-		Todo t2 = new Todo("Studiare PHP");
-		Todo t3 = new Todo("Studiare Javascript");
-		Todo t4 = new Todo("Studiare Python");
+	
+		TodoCtrl ctrl = new TodoCtrl();
 		
+		ctrl.addTodo("latte", 0);
+		ctrl.addTodo("pane", 1);
+		ctrl.addTodo("biscotti", 2);
+		ctrl.addTodo("caffè", 3);
 		
-		System.out.println(t2.leggiTodo());
-		t2.completa();
-		System.out.println(t2.leggiTodo());
-		
+		for (Todo cosa : ctrl.getCoseDaFare()) {
+			if (cosa != null) {
+				System.out.println(cosa.leggiTodo());
+			}
+		}
 
 	}
 

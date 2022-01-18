@@ -25,6 +25,14 @@ public class Todo {
 	}
 	
 	public String leggiTodo() {
-		return "Desc: " + descrizione + " " + completo;
+		String info = "";
+		if (completo) {
+			info  += "[*] ";
+		} else {
+			info  += "[ ] ";
+		}
+		info += descrizione;
+		
+		return info;
 	}
 }
