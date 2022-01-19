@@ -1,9 +1,19 @@
 package model;
 
-public class FiguraGeometrica {
+public abstract class FiguraGeometrica {//NON SI PUO' ISTANZIARE
 
-	public double area() {
-		return 0;
+	protected String nome;
+	protected String nomeForma;
+	
+	public abstract double area();
+	
+	public abstract void prova();
+
+	@Override
+	public String toString() {
+		return "La stanza di nome " + nome + ", di forma " + nomeForma + " ha una superficie di " + area();
 	}
+
+	
 	
 }

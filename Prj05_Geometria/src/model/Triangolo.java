@@ -14,6 +14,19 @@ public class Triangolo extends FiguraGeometrica{
 		this.bc = new Segmento(b, c);
 		this.ac = new Segmento(a, c);
 	
+		
+		
+	}
+	
+	public Triangolo(Segmento ab, Segmento bc, Segmento ac) {
+		
+		this.ab = ab;
+		this.bc = bc;
+		this.ac = ac;
+		
+		this.nomeForma = "triangolare";
+		
+		
 	}
 	
 	public double perimetro() {
@@ -29,6 +42,12 @@ public class Triangolo extends FiguraGeometrica{
 		return Math.sqrt(sp *  (sp - ab.calcolaLunghezza()) 
 				*  (sp - bc.calcolaLunghezza())
 				*  (sp - ac.calcolaLunghezza()));
+	}
+
+	@Override
+	public void prova() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

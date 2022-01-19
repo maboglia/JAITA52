@@ -11,6 +11,11 @@ public class Segmento {
 		this.b = b;
 	}
 	
+	public Segmento(int lunghezza) {
+		this.a = new Punto(0,0);
+		this.b = new Punto(lunghezza, 0);
+	}
+	
 	public double calcolaLunghezza() {
 		
 		double lunghezza = 0;
