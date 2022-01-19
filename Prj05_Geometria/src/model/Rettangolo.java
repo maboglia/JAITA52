@@ -1,7 +1,7 @@
 package model;
 
 
-public class Rettangolo {
+public class Rettangolo extends FiguraGeometrica {
 
 	private Segmento base, altezza;
 
@@ -15,6 +15,7 @@ public class Rettangolo {
 	}
 	
 	public double area() {
+		System.out.println("ho applicato la formula del rettangolo");
 		return base.calcolaLunghezza() * altezza.calcolaLunghezza();
 	}
 	

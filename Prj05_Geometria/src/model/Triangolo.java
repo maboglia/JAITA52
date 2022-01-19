@@ -1,6 +1,6 @@
 package model;
 
-public class Triangolo {
+public class Triangolo extends FiguraGeometrica{
 
 	private Punto a, b, c;
 	private Segmento ab, bc, ac;
