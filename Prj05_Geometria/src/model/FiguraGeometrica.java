@@ -7,7 +7,6 @@ public abstract class FiguraGeometrica {//NON SI PUO' ISTANZIARE
 	
 	public abstract double area();
 	
-	public abstract void prova();
 
 	@Override
 	public String toString() {
