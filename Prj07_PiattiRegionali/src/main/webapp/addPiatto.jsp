@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Aggiungi piatto</title>
-</head>
-<body>
+<%@ include file="header.jsp" %>
+
 
 <h1>Aggiungi piatto</h1>
 
@@ -17,5 +12,4 @@
 </form>
 
 
-</body>
-</html>
+<%@ include file="footer.jsp" %>

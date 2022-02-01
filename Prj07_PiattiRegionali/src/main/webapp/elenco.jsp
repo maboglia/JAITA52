@@ -1,3 +1,5 @@
+<%@ include file="header.jsp" %>
+
 
 <%@page import="model.Piatto"%>
 <%@page import="java.util.List"%>
@@ -23,3 +25,6 @@
 <% } %>
 
 </table>
+
+
+<%@ include file="footer.jsp" %>
