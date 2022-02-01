@@ -26,16 +26,12 @@ public class PiattiMVC extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		StringBuilder sb = new StringBuilder();
+		//aggiungo alla request l'attributo di nome elencoPiatti e con valore List<Piatto>
+		request.setAttribute("elencoPiatti", this.ctrl.getPiatti());
 		
-		List<Piatto> piatti = this.ctrl.getPiatti();
+		//chiamo la pagina jsp e le passo la richiesta con il nuovo attributo appena inserito
+		request.getRequestDispatcher("elenco.jsp").forward(request, response);
 		
-		for (Piatto piatto : piatti) {
-			sb.append(piatto);
-		}
-		
-		//risposta del server
-		response.getWriter().append(sb.toString());
 	}
 
 	/**
