@@ -19,7 +19,7 @@
 <tr>
 
 	<td><%= p.getNome() %></td>
-	<td><%= p.getRegione() %></td>
+	<td><a href="?regione=<%= p.getRegione() %>"><%= p.getRegione() %></a></td>
 
 </tr>
 <% } %>

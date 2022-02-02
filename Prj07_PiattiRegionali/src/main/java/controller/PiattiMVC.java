@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.ServletException;
@@ -26,8 +27,24 @@ public class PiattiMVC extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//aggiungo alla request l'attributo di nome elencoPiatti e con valore List<Piatto>
-		request.setAttribute("elencoPiatti", this.ctrl.getPiatti());
+		if (request.getParameter("regione") != null) {
+			
+			List<Piatto> piatti = new ArrayList<>();//contenitore VUOTO
+			
+			for (Piatto p : this.ctrl.getPiatti()) {
+				if (p.getRegione().equals(request.getParameter("regione")))
+					piatti.add(p);
+			}
+			request.setAttribute("elencoPiatti", piatti);
+			
+			
+		} else {
+			//aggiungo alla request l'attributo di nome elencoPiatti e con valore List<Piatto>
+			request.setAttribute("elencoPiatti", this.ctrl.getPiatti());
+		}
+		
+		
+		
 		
 		//chiamo la pagina jsp e le passo la richiesta con il nuovo attributo appena inserito
 		request.getRequestDispatcher("elenco.jsp").forward(request, response);
