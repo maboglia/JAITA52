@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Client Javascript</h1>
+<button id="bottone">cliccami</button>
+<ul id="lista"></ul>
+
+
+<script>
+
+	const URL = "http://localhost:8080/Prj08_WebClient/api/libri";
+	const LISTA = document.getElementById('lista');
+	const btn = document.getElementById('bottone');
+	
+	
+	btn.onclick = function(){
+		fetch(URL).then(j => j.json()).then(collezione => {
+			
+			for (let libro of collezione){
+				console.log(libro);
+				const LI = document.createElement('li');
+				LI.textContent = libro.titolo;
+				
+				LISTA.appendChild(LI);
+				
+			}
+			
+			
+			
+		});
+		
+	}
+	
+
+
+</script>
+
+</body>
+</html>
