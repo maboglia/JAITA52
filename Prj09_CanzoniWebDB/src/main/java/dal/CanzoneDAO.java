@@ -7,7 +7,7 @@ import model.Canzone;
 
 public interface CanzoneDAO {
 
-	String GET_ALL = "SELECT * FROM canzoni";
+	String GET_ALL = "SELECT * FROM canzoniGen";
 	
 	//update: modificano il db e ritornano un intero (le righe interessate dalla richiesta)
 	void addCanzone(Canzone c) throws SQLException;

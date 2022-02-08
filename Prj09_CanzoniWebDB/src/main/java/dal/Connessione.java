@@ -14,7 +14,16 @@ public class Connessione {
 	
 	public Connection connetti() {
 		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
 		if (this.conn == null) {
+			
 			try {
 				this.conn = DriverManager.getConnection(DB_URL, USER, PASS);
 				

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Canzone;
@@ -23,7 +24,7 @@ public class CanzoneDAOImpl implements CanzoneDAO {
 		this.conn = db.connetti();
 		this.stat = this.conn.createStatement();
 		
-		String query = "INSERT INTO canzoni (titolo, cantante, genere, album) values( "
+		String query = "INSERT INTO canzoniGen (titolo, cantante, genere, album) values( "
 				
 				+ "'" + c.getTitolo() + "', "
 				+ "'" + c.getCantante() + "', "
@@ -54,9 +55,36 @@ public class CanzoneDAOImpl implements CanzoneDAO {
 	}
 
 	@Override
-	public List<Canzone> getCanzoni() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Canzone> getCanzoni() throws SQLException {
+		
+		List<Canzone> canzoni = new ArrayList<>();
+		
+		this.conn = db.connetti();
+		this.stat = this.conn.createStatement();
+		
+		this.rs = this.stat.executeQuery(GET_ALL);
+		
+		while(this.rs.next()) {
+			int id = rs.getInt("id");
+			String titolo = rs.getString("titolo");
+			String album = rs.getString("album");
+			String cantante = rs.getString("cantante");
+			String genere = rs.getString("genere");
+			
+			Canzone c = new Canzone();
+			c.setId(id);
+			c.setTitolo(titolo);
+			c.setAlbum(album);
+			c.setCantante(cantante);
+			c.setGenere(genere);
+			canzoni.add(c);
+			
+		}
+		
+		
+		
+		
+		return canzoni;
 	}
 
 }
