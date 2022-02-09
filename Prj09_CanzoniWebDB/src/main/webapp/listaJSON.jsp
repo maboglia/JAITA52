@@ -49,7 +49,22 @@ BTN.onclick = function () {
 
 	console.log(canzone);
 
+	
 
+	fetch(URL, {
+	method: 'POST', // or 'PUT'
+	headers: {
+		'Content-Type': 'application/json',
+	},
+	body: JSON.stringify(canzone),
+	})
+	.then(response => response.json())
+	.then(canzone => {
+	console.log('Success:', canzone);
+	})
+	.catch((error) => {
+	console.error('Error:', error);
+	});
 
 
 
