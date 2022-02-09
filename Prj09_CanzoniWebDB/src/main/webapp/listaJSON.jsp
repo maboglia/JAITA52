@@ -60,6 +60,7 @@ BTN.onclick = function () {
 	})
 	.then(response => response.json())
 	.then(canzone => {
+		caricaLista();
 	console.log('Success:', canzone);
 	})
 	.catch((error) => {
@@ -67,8 +68,28 @@ BTN.onclick = function () {
 	});
 
 
+	
+
+}
 
 
+function caricaLista() {
+	
+	fetch(URL).then(e => e.json()).then(canzoni => {
+		
+		let output = "";
+		for (let canzone of canzoni){
+			
+			output += "<tr>" + "<td>" + canzone.titolo +"</td>" + "<td>" + canzone.cantante +"</td>" + "</tr>";
+			
+		}
+		
+		TAB.innerHTML += output;
+		
+	});
+
+	
+	
 }
 
 
@@ -83,21 +104,6 @@ BTN.onclick = function () {
 
 
 
-
-
-
-fetch(URL).then(e => e.json()).then(canzoni => {
-	
-	let output = "";
-	for (let canzone of canzoni){
-		
-		output += "<tr>" + "<td>" + canzone.titolo +"</td>" + "<td>" + canzone.cantante +"</td>" + "</tr>";
-		
-	}
-	
-	TAB.innerHTML += output;
-	
-});
 
 
 
