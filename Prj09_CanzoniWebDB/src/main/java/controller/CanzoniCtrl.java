@@ -37,5 +37,16 @@ public class CanzoniCtrl {
 		}
 		return null;
 	}
+
+	public void addCanzone(Canzone c) {
+		try {
+			this.repo.addCanzone(c);
+			System.out.println("Aggiunta la canzone; " + c);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 }
