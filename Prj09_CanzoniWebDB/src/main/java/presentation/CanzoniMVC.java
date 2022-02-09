@@ -27,8 +27,11 @@ public class CanzoniMVC extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append(this.ctrl.getCanzoni().toString());
+		
+		request.setAttribute("listaCanzoni", this.ctrl.getCanzoni());
+		request.getRequestDispatcher("lista.jsp").forward(request, response);
+		
+		
 	}
 
 	/**
