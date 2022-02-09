@@ -12,6 +12,14 @@
 
 <h1>Le nostre hit!</h1>
 
+
+	<input type="text" id="id" placeholder="id" value="500"><br>
+	<input type="text" id="titolo" placeholder="titolo"><br>
+	<input type="text" id="cantante" placeholder="cantante"><br>
+	<input type="text" id="genere" placeholder="genere"><br>
+	<input type="text" id="album" placeholder="album"><br>
+	<button id="btnAggiungi">Aggiungi</button>
+
 <table id="tabella">
 
 	<tr>
@@ -27,6 +35,41 @@
 
 const URL = "api/canzoni";
 const TAB = document.getElementById('tabella');
+const BTN = document.getElementById("btnAggiungi");
+
+BTN.onclick = function () {
+	
+	const canzone = {};
+
+	canzone.id = document.getElementById('id').value;
+	canzone.titolo = document.getElementById('titolo').value;
+	canzone.cantante = document.getElementById('cantante').value;
+	canzone.album = document.getElementById('album').value;
+	canzone.genere = document.getElementById('genere').value;
+
+	console.log(canzone);
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 fetch(URL).then(e => e.json()).then(canzoni => {
 	
