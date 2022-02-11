@@ -1,6 +1,7 @@
 package presentation;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import controller.CanzoniCtrl;
 import jakarta.servlet.ServletException;
@@ -28,7 +29,19 @@ public class CanzoniMVC extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setAttribute("listaCanzoni", this.ctrl.getCanzoni());
+		if (request.getParameter("cantante")!=null) {
+			String cantante = request.getParameter("cantante");
+			request.setAttribute("listaCanzoni", this.ctrl.getCanzoni()
+					.stream()
+					.filter(c->c.getCantante().toLowerCase().contains(cantante.toLowerCase()))
+					.collect(Collectors.toList())
+					);
+			
+		} else {
+			
+			request.setAttribute("listaCanzoni", this.ctrl.getCanzoni());
+		}
+		
 		request.getRequestDispatcher("lista.jsp").forward(request, response);
 		
 		
