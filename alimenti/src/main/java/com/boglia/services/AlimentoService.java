@@ -13,7 +13,8 @@ public interface AlimentoService {
 	void delAlimento(int id);
 	
 	List<Alimento> getAlimenti();
-	List<Alimento> getAlimentiByCategoria();
+	List<Alimento> getAlimentiByCategoria(String categoria);
 	Alimento getAlimentoById(int id);
+	List<String> getCategorie();
 	
 }

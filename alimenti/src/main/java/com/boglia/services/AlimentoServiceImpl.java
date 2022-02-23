@@ -1,6 +1,7 @@
 package com.boglia.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,20 +36,31 @@ public class AlimentoServiceImpl implements AlimentoService {
 
 	@Override
 	public List<Alimento> getAlimenti() {
-		// TODO Auto-generated method stub
 		return this.repo.findAll();
 	}
 
 	@Override
-	public List<Alimento> getAlimentiByCategoria() {
+	public List<Alimento> getAlimentiByCategoria(String categoria) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findByCategoria(categoria);
 	}
 
 	@Override
 	public Alimento getAlimentoById(int id) {
 		// TODO Auto-generated method stub
 		return this.repo.getById(id);
+	}
+
+	@Override
+	public List<String> getCategorie() {
+		
+		return getAlimenti()
+				.stream()
+				.map(a -> a.getCategoria())
+				.distinct()
+				.sorted()
+				.collect(Collectors.toList())
+				;
 	}
 
 }

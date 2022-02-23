@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alimenti</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div id="sinistra" class="col-3"></div>
+            <div id="destra" class="col-9"></div>
+        </div>
+    </div>
+
+    <script>
+
+        const URL = 'http://localhost:9006/alimenti/api/categorie';
+        const SX = document.getElementById("sinistra");
+        const DX = document.getElementById("destra");
+
+        fetch(URL).then(e => e.json()).then(cat => {
+
+            let output = '<select id="tendina" onchange="cambiaCategoria()">';
+            for (const categoria of cat) {
+                output += '<option>'+categoria +'</option>';
+            }
+            output += '</select>';
+            
+            SX.innerHTML = output;
+
+        });
+
+        function cambiaCategoria() {
+            let tendina = document.getElementById('tendina');
+            let scelta = tendina.value;
+            
+            fetch('http://localhost:9006/alimenti/api/cat/' + scelta).then(e => e.json())
+                .then(e => {
+                    let output = '';
+                    for (const alimento of e) {
+                        output += alimento.prodotto + '<br>'
+                    }
+                    DX.innerHTML = output;
+
+                })
+
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

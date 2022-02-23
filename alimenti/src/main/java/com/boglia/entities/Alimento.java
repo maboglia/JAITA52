@@ -19,6 +19,7 @@ public class Alimento {
 	private double lipidi;
 	private double carboidrati;
 	private int energia;
+	
 	public int getId() {
 		return id;
 	}
@@ -32,7 +33,7 @@ public class Alimento {
 		this.categoria = categoria;
 	}
 	public String getProdotto() {
-		return prodotto;
+		return prodotto.toUpperCase();
 	}
 	public void setProdotto(String prodotto) {
 		this.prodotto = prodotto;
