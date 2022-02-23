@@ -3,6 +3,7 @@ package com.boglia.integration;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,11 +29,13 @@ public class AlimentiREST {
 		return service.getAlimenti();
 	}
 	
+	@CrossOrigin
 	@GetMapping("cat/{categoria}")
 	public List<Alimento> getByCat(@PathVariable("categoria") String category){
 		return service.getAlimentiByCategoria(category);
 	}
 	
+	@CrossOrigin
 	@GetMapping("categorie")
 	public List<String> getCategorie(){
 		return this.service.getCategorie();
