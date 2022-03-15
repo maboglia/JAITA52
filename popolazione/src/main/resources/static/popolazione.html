@@ -17,13 +17,49 @@
                 for (const regione of j) {
                     const LI = document.createElement("LI");
                     LI.textContent = regione;
+                    LI.onclick = function () {
+                        trovaComuni(regione);
+                    }
+
                     UL.appendChild(LI);
                 }
                 document.body.appendChild(UL);
-            });
+        });
 
+function trovaComuni(regioneSelezionata){
+        fetch("http://localhost:9016/api/regioni/"+regioneSelezionata).then(j => j.json())
+            .then(j => {
+                const UL = document.createElement("ul");
+                for (const provincia of j) {
+                    const LI = document.createElement("LI");
+                    LI.textContent = provincia.comune;
+                    LI.onclick = function () {
+                        stampaComune(provincia.comune);
+                    }
+                    UL.appendChild(LI);
+                }
+                document.body.appendChild(UL);
+        });
 
-
+}
+function stampaComune(comune) {
+    fetch("http://localhost:9016/api/regioni/comuni/"+comune).then(j => j.json())
+            .then(j => {
+                const div = document.createElement("div");
+                const provincia = j;
+                    const H2 = document.createElement("h2");
+                    H2.textContent = provincia.comune;
+                    div.appendChild(H2);
+                    const maschi = document.createElement("h3");
+                    maschi.textContent = 'Maschi '+ provincia.maschi;
+                    div.appendChild(maschi);
+                    const femmine = document.createElement("h3");
+                    femmine.textContent = 'Femmine ' + provincia.femmine;
+                    div.appendChild(femmine);
+                document.body.appendChild(div);
+        });
+    
+}
     </script>
 
 </body>

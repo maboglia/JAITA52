@@ -11,8 +11,8 @@
 	<h2 th:text="${provincia.regione}"></h2>
 	
 	<div id="grafico">
-		<div  th:text="${provincia.maschi}" id="maschi"></div>
-		<div  th:text="${provincia.femmine}" id="femmine"></div>
+		<div  th:text="${provincia.maschi}" id="maschi" th:style="'background-color:red;width:'+@{${provincia.maschi / 2500}}+'px;'"></div>
+		<div  th:text="${provincia.femmine}" id="femmine" th:style="'background-color:blue;width:'+@{${provincia.femmine / 2500}}+'px;'"></div>
 	
 	</div>
 	
