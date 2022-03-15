@@ -9,5 +9,6 @@ import com.boglia.entities.Provincia;
 public interface ProvinciaDAO extends JpaRepository<Provincia, Integer> {
 
 	List<Provincia> findProvinciaByRegione(String regione);
+	Provincia findProvinciaByComune(String comune);
 	
 }

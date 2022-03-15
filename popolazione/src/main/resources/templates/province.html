@@ -7,11 +7,11 @@
 <body>
 
 	<h1 th:text="${titolo}"></h1>
-	<form method="post" action="regioni">
+	<form method="post" action="comuni">
 	
-	<select id="elencoRegioni" name="elencoRegioni">
-		<option>scegli regione</option>
-		<option th:each="r : ${elenco}" th:text="${r}"></option>
+	<select id="elencoComuni" name="elencoComuni">
+		<option>scegli provincia</option>
+		<option th:each="p : ${province}" th:text="${p.comune}"></option>
 	
 	</select>
 	<input type="submit" value="cerca">	

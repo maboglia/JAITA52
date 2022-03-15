@@ -56,7 +56,7 @@ public class PopolazioneServiceImpl implements PopolazioneService {
 
 	@Override
 	public Provincia getProvinciaByComune(String comune) {
-		return null;
+		return repo.findProvinciaByComune(comune);
 	}
 	
 	

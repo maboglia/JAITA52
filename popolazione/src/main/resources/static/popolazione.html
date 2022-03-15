@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+
+    <script>
+
+        fetch("http://localhost:9016/api/regioni").then(j => j.json())
+            .then(j => {
+                const UL = document.createElement("ul");
+                for (const regione of j) {
+                    const LI = document.createElement("LI");
+                    LI.textContent = regione;
+                    UL.appendChild(LI);
+                }
+                document.body.appendChild(UL);
+            });
+
+
+
+    </script>
+
+</body>
+</html>
