@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titolo}">Insert title here</title>
+</head>
+<body>
+
+	<h1 th:text="${titolo}"></h1>
+	
+	<select id="elencoRegioni" name="elencoRegioni">
+		<option>scegli regione</option>
+		<option th:each="r : ${elenco}" th:text="${r}"></option>
+	
+	</select>
+	
+
+</body>
+</html>
